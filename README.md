@@ -60,14 +60,6 @@ require("cursor-dark").setup({
 })
 ```
 
-## 🎨 Plugin Integrations
-
-cursor-dark.nvim provides custom styling for the following plugins:
-  - nvimdev/dashboard-nvim
-  - nvim-lualine/lualine.nvim (support coming soon)
-
-If you'd like to see support for another plugin, please open an issue!
-
 ## 📜 License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE.md) file for details.
