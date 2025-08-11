@@ -4,11 +4,11 @@ A dark colorscheme for Neovim and Vim inspired by Cursor's dark and dark midnigh
 
 ## ✨ Features
 
-- Inspired by Cursor: A faithful reproduction of the clean, low-contrast color palette found in the Cursor editor.
-- Cross-Platform: Works on both Neovim (with Lua configuration) and Vim (with Vimscript).
-- Customizable: Allows for a transparent background and other future customizations via a simple setup function.
-- Tree-sitter Support: Includes syntax highlighting for common Tree-sitter languages to provide a modern editing experience.
-- Plugin Integration: Provides sensible defaults and theme overrides for popular plugins like nvimdev/dashboard-nvim to ensure a consistent look.
+- **Inspired by Cursor**: A faithful reproduction of the clean, low-contrast color palette found in the Cursor editor.
+- **Cross-Platform**: Works on both Neovim (with Lua configuration) and Vim (with Vimscript).
+- **Customizable**: Allows for a transparent background and other future customizations via a simple setup function.
+- **Tree-sitter Support**: Includes syntax highlighting for common Tree-sitter languages to provide a modern editing experience.
+- **Plugin Integration**: Provides sensible defaults and theme overrides for popular plugins like nvimdev/dashboard-nvim to ensure a consistent look.
 
 ## 📸 Screenshot
 
@@ -48,6 +48,9 @@ Plug 'your-github-username/cursor-dark.nvim'
 " After installing, add this to your configuration
 colorscheme cursor-dark
 ```
+
+- Manual (vim)
+    - Copy the files in `color/` and place them in `~/.vim/colors/` directory
 
 ## ⚙️ Configuration
 

@@ -1,7 +1,11 @@
 " Vim color file
+"
 " Name: cursor-dark
-" Maintainer: ydkulkarni(ydkulks2@gmail.com)
+" Author: ydkulks (https://github.com/ydkulks)
 " License: MIT
+"
+" Note: Based on the Cursor Dark theme from Cursor IDE.
+" Learn more: https://medium.com/unixification/how-to-create-a-vim-colorscheme-6ee020b75624
 
 " This is a guard to prevent the colorscheme from being loaded multiple times.
 if version > 580
@@ -17,75 +21,128 @@ let g:colors_name = "cursor-dark"
 " Set the background. This is important for Vim to pick the right color palette.
 set background=dark
 
-" Define the color palette using hex codes.
-" These are variables for convenience in Vimscript.
-let s:black       = "#1e222a"
-let s:white       = "#abb2bf"
-let s:gray        = "#5c6370"
-let s:blue        = "#61afef"
-let s:green       = "#98c379"
-let s:red         = "#e06c75"
-let s:orange      = "#d19a66"
-let s:purple      = "#c678dd"
-let s:cyan        = "#56b6c2"
-let s:selection   = "#383f4d"
-let s:cursorline  = "#2c323c"
-let s:visual      = "#383f4d"
-
-" --- Basic UI Highlights ---
-" The syntax for highlight command is:
-" hi GroupName ctermfg=ColorNumber ctermbg=ColorNumber guifg=#hexcode guibg=#hexcode gui=style
-"
 " ctermfg/ctermbg are for terminal Vim, guifg/guibg are for GUI Vim (gVim, MacVim).
 " You can use 256-color numbers or standard color names. Hex codes are preferred for guifg/guibg.
 
-hi Normal       guifg=s:white    guibg=s:black
-hi Cursor       guifg=s:black    guibg=s:white    gui=reverse
-hi Visual       guifg=NONE       guibg=s:visual   gui=NONE
-hi Comment      guifg=s:gray     gui=italic
-hi LineNr       guifg=s:gray
-hi StatusLine   guifg=s:white    guibg=s:gray
-hi StatusLineNC guifg=s:gray     guibg=s:black
-hi ColorColumn  guifg=NONE       guibg=s:cursorline
-hi CursorLine   guifg=NONE       guibg=s:cursorline
-hi CursorLineNr guifg=s:white    guibg=s:cursorline
-hi Pmenu        guifg=s:white    guibg=s:cursorline
-hi PmenuSel     guifg=s:black    guibg=s:blue
-hi VertSplit    guifg=s:gray     guibg=s:black
-hi NonText      guifg=s:gray     guibg=NONE
-hi Folded       guifg=s:gray     guibg=s:cursorline
-hi MatchParen   guifg=s:orange   guibg=NONE       gui=bold
+" Define the color palette using hex codes.
+let s:background = { "gui": "#1E2127" }
+let s:foreground = { "gui": "#EBEEF4" }
+let s:cursorColor = { "gui": "#A6BF91" }
+let s:selectionBackground = { "gui": "#21252B" }
+let s:brightBlack = { "gui": "#535D71" }
+let s:brightBlue = { "gui": "#85A4C3" }
+let s:brightCyan = { "gui": "#93BDBD" }
+let s:brightGreen = { "gui": "#A6BF91" }
+let s:brightPurple = { "gui": "#B692B0" }
+let s:brightRed = { "gui": "#C06771" }
+let s:brightWhite = { "gui": "#EBEEF4" }
+let s:brightYellow = { "gui": "#EACC90" }
+let s:darkBlack = { "gui": "#21252B" }
+let s:darkBlue = { "gui": "#313C47" }
+let s:darkGreen = { "gui": "#374030" }
+let s:darkRed = { "gui": "#4F2A2F" }
+let s:darkYellow = { "gui": "#4A402E" }
+let s:black = { "gui": "#30353F" }
+let s:blue = { "gui": "#85A4C3" }
+let s:cyan = { "gui": "#8CC1D1" }
+let s:green = { "gui": "#A6BF91" }
+let s:purple = { "gui": "#82819F" }
+let s:red = { "gui": "#C06771" }
+let s:white = { "gui": "#E4E8F0" }
+let s:yellow = { "gui": "#EACC90" }
+
+" Helper function to set the guifg/guibg values.
+function! s:setGuiColor(group, style)
+    exec "hi " a:group
+          \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")
+          \ "guibg="   (has_key(a:style, "bg")    ? a:style.bg.gui   : "NONE")
+          \ "guisp="   (has_key(a:style, "sp")    ? a:style.sp.gui   : "NONE")
+          \ "gui="     (has_key(a:style, "gui")   ? a:style.gui      : "NONE")
+endfunction
+
+" --- UI Highlights ---
+call s:setGuiColor("Normal", { "fg": s:foreground, "bg": s:background })
+call s:setGuiColor("Cursor", { "fg": s:background, "bg": s:cursorColor })
+call s:setGuiColor("LineNr", { "fg": s:brightBlack, "bg": s:background })
+call s:setGuiColor("StatusLine", { "fg": s:foreground, "bg": s:black })
+call s:setGuiColor("StatusLineNC", { "fg": s:brightBlack, "bg": s:background })
+call s:setGuiColor("Title", { "fg": s:blue, "gui": "bold" })
+call s:setGuiColor("Visual", { "bg": s:darkBlue })
+call s:setGuiColor("VisualNC", { "fg": s:background, "bg": s:yellow })
+call s:setGuiColor("MatchParen", { "fg": s:background, "bg": s:yellow, "gui": "bold" })
+call s:setGuiColor("Pmenu", { "fg": s:white })
+call s:setGuiColor("PmenuSel", { "fg": s:black, "bg": s:blue })
+call s:setGuiColor("NonText", { "fg": s:brightBlack })
+call s:setGuiColor("Folded", { "fg": s:brightBlack })
+call s:setGuiColor("SignColumn", { "fg": s:brightBlack })
+call s:setGuiColor("WinSeparator", { "fg": s:black })
+call s:setGuiColor("Special", { "fg": s:cyan })
+call s:setGuiColor("SpecialKey", { "fg": s:brightBlack })
+call s:setGuiColor("SpellBad", { "fg": s:red, "gui": "underline" })
+call s:setGuiColor("SpellCap", { "fg": s:blue, "gui": "underline" })
+call s:setGuiColor("SpellLocal", { "fg": s:cyan, "gui": "underline" })
+call s:setGuiColor("SpellRare", { "fg": s:purple, "gui": "underline" })
+call s:setGuiColor("Directory", { "fg": s:blue })
+call s:setGuiColor("ErrorMsg", { "fg": s:red })
+call s:setGuiColor("Search", { "fg": s:yellow, "bg": s:darkYellow })
+call s:setGuiColor("CurSearch", { "fg": s:background, "bg": s:yellow })
+call s:setGuiColor("MoreMsg", { "fg": s:cyan })
+call s:setGuiColor("ModeMsg", { "fg": s:green })
+call s:setGuiColor("Question", { "fg": s:cyan })
+call s:setGuiColor("WarningMsg", { "fg": s:yellow })
+call s:setGuiColor("Conceal", { "fg": s:black })
+call s:setGuiColor("PmenuThumb", { "fg": s:black, "bg": s:blue })
+call s:setGuiColor("QuickFixLine", { "fg": s:black, "bg": s:blue })
+call s:setGuiColor("WinBar", { "fg": s:black, "bg": s:darkBlack })
+call s:setGuiColor("WinBarNC", { "fg": s:black, "bg": s:darkBlack })
+call s:setGuiColor("CursorLine", { "bg": s:selectionBackground })
+call s:setGuiColor("CursorColumn", { "bg": s:selectionBackground })
+call s:setGuiColor("CursorLineNr", { "fg": s:brightBlack, "bg": s:selectionBackground })
+call s:setGuiColor("ColorColumn", { "bg": s:background })
+call s:setGuiColor("NormalFloat", { "fg": s:foreground })
+call s:setGuiColor("FloatBorder", { "fg": s:brightBlack })
+call s:setGuiColor("FloatShadow", { "fg": s:black })
+call s:setGuiColor("FloatShadowThrough", { "fg": s:black })
+call s:setGuiColor("BlinkCmpMenuBorder", { "fg": s:brightBlack })
+call s:setGuiColor("BlinkCmpDocBorder", { "fg": s:brightBlack })
+call s:setGuiColor("DiffAdd", { "bg": s:darkGreen })
+call s:setGuiColor("DiffChange", { "bg": s:darkYellow })
+call s:setGuiColor("DiffDelete", { "bg": s:darkRed })
+call s:setGuiColor("DiffText", { "bg": s:darkBlue })
+call s:setGuiColor("GitSignsAdd", { "fg": s:green })
+call s:setGuiColor("GitSignsChange", { "fg": s:yellow })
+call s:setGuiColor("GitSignsDelete", { "fg": s:red })
 
 " --- Syntax Highlights ---
-" Link syntax groups to the base highlight groups.
-" This is a very common and efficient practice in Vim colorschemes.
-hi link String      s:green
-hi link Character   String
-hi link Number      s:orange
-hi link Boolean     Number
-hi link Keyword     s:purple
-hi link Function    s:blue
-hi link Identifier  s:red
-hi link Operator    Normal
-hi link Statement   Keyword
-hi link PreProc     purple
-hi link Type        purple
-hi link Define      Keyword
-hi link Error       guifg=s:red      guibg=s:black    gui=underline
+call s:setGuiColor("Comment", { "fg": s:brightBlack, "gui": "italic" })
+call s:setGuiColor("String", { "fg": s:green })
+call s:setGuiColor("Number", { "fg": s:purple })
+call s:setGuiColor("Boolean", { "fg": s:yellow })
+call s:setGuiColor("Keyword", { "fg": s:purple })
+call s:setGuiColor("Function", { "fg": s:blue })
+call s:setGuiColor("Identifier", { "fg": s:red })
+call s:setGuiColor("Statement", { "fg": s:purple })
+call s:setGuiColor("Operator", { "fg": s:blue })
+call s:setGuiColor("Type", { "fg": s:brightBlue })
+call s:setGuiColor("PreProc", { "fg": s:brightPurple })
+call s:setGuiColor("Constant", { "fg": s:brightYellow })
+call s:setGuiColor("Todo", { "fg": s:yellow, "gui": "bold" })
+call s:setGuiColor("Added", { "fg": s:green })
+call s:setGuiColor("Removed", { "fg": s:red })
+call s:setGuiColor("Changed", { "fg": s:yellow })
+call s:setGuiColor("Error", { "fg": s:red, "bg": s:darkRed })
 
-" --- To make sure the colors work correctly in 256-color terminals, you should
-" either define cterm colors explicitly or rely on the terminal to handle hex.
-" Most modern terminals can handle it, but for a robust colorscheme,
-" it's good practice to provide cterm colors.
-"
-" Example for a single highlight group:
-" hi Normal ctermfg=252 ctermbg=234 guifg=s:white guibg=s:black
-
-" To make your colorscheme more complete, you'll want to add many more highlight
-" groups. You can find a list of all standard groups with `:h highlight-groups`.
-" Don't forget to include groups for `git` diffs, `SpellCheck`, and other
-" popular plugins if you want a polished look.
-
-" You can also link groups to each other to save effort.
-" Example:
-" hi link Repeat Keyword
+" --- Diagnostic ---
+call s:setGuiColor("DiagnosticError", { "fg": s:red })
+call s:setGuiColor("DiagnosticWarn", { "fg": s:yellow })
+call s:setGuiColor("DiagnosticInfo", { "fg": s:blue })
+call s:setGuiColor("DiagnosticHint", { "fg": s:cyan })
+call s:setGuiColor("DiagnosticOk", { "fg": s:green })
+call s:setGuiColor("DiagnosticUnderlineError", { "gui": "undercurl", "sp": s:red })
+call s:setGuiColor("DiagnosticUnderlineWarn", { "gui": "undercurl", "sp": s:yellow })
+call s:setGuiColor("DiagnosticUnderlineInfo", { "gui": "undercurl", "sp": s:blue })
+call s:setGuiColor("DiagnosticUnderlineHint", { "gui": "undercurl", "sp": s:cyan })
+call s:setGuiColor("DiagnosticDeprecated", { "fg": s:yellow, "gui": "strikethrough" })
+call s:setGuiColor("RedrawDebugClear", { "bg": s:darkYellow })
+call s:setGuiColor("RedrawDebugComposed", { "bg": s:darkGreen })
+call s:setGuiColor("RedrawDebugRecompose", { "bg": s:darkRed })

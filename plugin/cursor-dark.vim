@@ -7,14 +7,7 @@ endif
 " The main part of the plugin logic.
 " If Neovim is running, try to load the Lua colorscheme.
 if has("nvim")
-    lua << EOF
-        -- This block of Lua code will only run in Neovim.
-        -- It requires your colorscheme module and calls the setup function.
-        -- If you want to allow users to customize the colorscheme via Vimscript
-        -- variables, you can read them here and pass them to the setup function.
-        local colorscheme = require("cursor-dark")
-        colorscheme.setup({})
-    EOF
+  lua require("cursor-dark").setup({})
 else
     " For regular Vim, we'll try to load the Vimscript file.
     " This is for backward compatibility.
