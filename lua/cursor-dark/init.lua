@@ -6,23 +6,29 @@ local M = {}
 -- This is the default configuration for your colorscheme.
 -- Users can override these options.
 local default_options = {
+  style = "cursor-dark",
   transparent = false,
-  -- You can add other options here, for example:
-  -- style = "dark", -- or "light"
-  -- theme = "wave", -- or "solarized"
 }
 
--- The setup function is the public API of your colorscheme.
--- Users will call this function to configure and load the colorscheme.
+-- Setup function
 function M.setup(options)
-  -- Merge the user-provided options with the defaults.
-  -- This ensures that any options not specified by the user will use
-  -- the default values.
+  -- Merge user options with defaults
   M.options = vim.tbl_deep_extend("force", default_options, options or {})
 
-  -- Load the main colorscheme file.
-  -- This will execute the code in lua/cursor-dark/cursor-dark.lua
-  require("cursor-dark.cursor-dark")
+  -- Load the selected theme module
+  local theme_name = M.options.style
+  local ok, theme = pcall(require, "cursor-dark." .. theme_name)
+
+  if not ok then
+    vim.notify("[cursor-dark] Theme '" .. theme_name .. "' not found", vim.log.levels.ERROR)
+    return
+  end
+
+  -- Call the theme's `set()` function, passing options like transparent
+  theme.set(M.options)
+
+  -- Set the colorscheme name for Neovim's tracking
+  vim.g.colors_name = "cursor-" .. theme_name
 end
 
 -- Return the module so it can be required by other files.
