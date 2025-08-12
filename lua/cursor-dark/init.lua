@@ -3,21 +3,24 @@
 -- at the end of the file, effectively creating a module.
 local M = {}
 
--- This is the default configuration for your colorscheme.
+-- This is the default configuration for your `colorscheme`.
 -- Users can override these options.
+---@type {style: string, transparent: boolean, dashboard: boolean}
 local default_options = {
-  style = "cursor-dark",
+  style = "dark",
   transparent = false,
+  dashboard = false,
 }
 
 -- Setup function
+---@param options { transparent: boolean, dashboard: boolean} Options to override default options
 function M.setup(options)
   -- Merge user options with defaults
   M.options = vim.tbl_deep_extend("force", default_options, options or {})
 
   -- Load the selected theme module
   local theme_name = M.options.style
-  local ok, theme = pcall(require, "cursor-dark." .. theme_name)
+  local ok, theme = pcall(require, "cursor-dark.themes." .. theme_name)
 
   if not ok then
     vim.notify("[cursor-dark] Theme '" .. theme_name .. "' not found", vim.log.levels.ERROR)

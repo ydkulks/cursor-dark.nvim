@@ -232,9 +232,20 @@ M.set = function()
     highlights.Normal.bg = "none"
     highlights.StatusLine.bg = "none"
     highlights.StatusLineNC.bg = "none"
-    -- highlights.CursorLine.bg = "none"
+    -- highlights.CursorLine.bg = "none" -- deprecated
     highlights.Pmenu.bg = "none"
   end
+
+  -- Check if `dashboard` option is set.
+  if require("cursor-dark").options.dashboard then
+    highlights.DashboardHeader = { fg = palette.blue, style = "bold" }
+    highlights.DashboardIcon = { fg = palette.blue, style = "bold" }
+    highlights.DashboardShortCut = { fg = palette.blue, style = "bold" }
+    highlights.DashboardDesc = { fg = palette.blue, style = "bold" }
+    highlights.DashboardKey = { fg = palette.blue, style = "bold" }
+    highlights.DashboardFooter = { bg = "none", fg = "#545c7e" }
+  end
+
 
   -- Loop through the defined highlights and apply them.
   for group, props in pairs(highlights) do

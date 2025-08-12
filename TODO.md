@@ -6,6 +6,8 @@
 - [x] Vimscript
 - [x] Tree-sitter support
 - [ ] Plugin integration
-    - [ ] nvimdev/dashboard.nvim
+    - [x] nvimdev/dashboard.nvim
     - [ ] ydkulks/tabs.nvim
     - [ ] ydkulks/statusline.nvim
+    - [ ] ydkulks/statusline.nvim
+- [ ] Terminal color scheme

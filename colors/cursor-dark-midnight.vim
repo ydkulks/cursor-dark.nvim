@@ -4,7 +4,7 @@
 " Author: ydkulks (https://github.com/ydkulks)
 " License: MIT
 "
-" Note: Based on the Cursor Dark theme from Cursor IDE.
+" Note: Based on the Cursor Dark Midnight theme from Cursor IDE.
 " Learn more: https://medium.com/unixification/how-to-create-a-vim-colorscheme-6ee020b75624
 
 " This is a guard to prevent the colorscheme from being loaded multiple times.
@@ -16,7 +16,7 @@ if version > 580
 endif
 
 " Set the colorscheme name.
-let g:colors_name = "cursor-dark"
+let g:colors_name = "cursor-dark-midnight"
 
 " Set the background. This is important for Vim to pick the right color palette.
 set background=dark
