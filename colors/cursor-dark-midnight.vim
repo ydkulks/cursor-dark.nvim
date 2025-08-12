@@ -25,31 +25,31 @@ set background=dark
 " You can use 256-color numbers or standard color names. Hex codes are preferred for guifg/guibg.
 
 " Define the color palette using hex codes.
-let s:background = { "gui": "#1A1A1A" }
-let s:foreground = { "gui": "#D8DEE9" }
-let s:cursorColor = { "gui": "#87C3FF" }
-let s:selectionBackground = { "gui": "#2E2E2E" }
-let s:brightBlack = { "gui": "#505050" }
-let s:brightBlue = { "gui": "#85C1FC" }
-let s:brightCyan = { "gui": "#83D6C5" }
-let s:brightGreen = { "gui": "#A3BE8C" }
-let s:brightPurple = { "gui": "#C582BF" }
-let s:brightRed = { "gui": "#BF616A" }
-let s:brightWhite = { "gui": "#D8DEE9" }
-let s:brightYellow = { "gui": "#EBC88D" }
-let s:darkBlack = { "gui": "#1F1F1F" }
-let s:darkBlue = { "gui": "#1E252B" }
-let s:darkGreen = { "gui": "#272E22" }
-let s:darkRed = { "gui": "#361B1E" }
-let s:darkYellow = { "gui": "#30291C" }
-let s:black = { "gui": "#2A2A2A" }
-let s:blue = { "gui": "#85C1FC" }
-let s:cyan = { "gui": "#88C0D0" }
-let s:green = { "gui": "#A3BE8C" }
-let s:purple = { "gui": "#AA9BF5" }
-let s:red = { "gui": "#BF616A" }
-let s:white = { "gui": "#D8DEE9" }
-let s:yellow = { "gui": "#EFB080" }
+let s:background = { "gui": "#1E2127" }
+let s:foreground = { "gui": "#EBEEF4" }
+let s:cursorColor = { "gui": "#A6BF91" }
+let s:selectionBackground = { "gui": "#21252B" }
+let s:brightBlack = { "gui": "#535D71" }
+let s:brightBlue = { "gui": "#85A4C3" }
+let s:brightCyan = { "gui": "#93BDBD" }
+let s:brightGreen = { "gui": "#A6BF91" }
+let s:brightPurple = { "gui": "#B692B0" }
+let s:brightRed = { "gui": "#C06771" }
+let s:brightWhite = { "gui": "#EBEEF4" }
+let s:brightYellow = { "gui": "#EACC90" }
+let s:darkBlack = { "gui": "#21252B" }
+let s:darkBlue = { "gui": "#313C47" }
+let s:darkGreen = { "gui": "#374030" }
+let s:darkRed = { "gui": "#4F2A2F" }
+let s:darkYellow = { "gui": "#4A402E" }
+let s:black = { "gui": "#30353F" }
+let s:blue = { "gui": "#85A4C3" }
+let s:cyan = { "gui": "#8CC1D1" }
+let s:green = { "gui": "#A6BF91" }
+let s:purple = { "gui": "#82819F" }
+let s:red = { "gui": "#C06771" }
+let s:white = { "gui": "#E4E8F0" }
+let s:yellow = { "gui": "#EACC90" }
 
 " Helper function to set the guifg/guibg values.
 function! s:setGuiColor(group, style)
@@ -63,11 +63,11 @@ endfunction
 " --- UI Highlights ---
 call s:setGuiColor("Normal", { "fg": s:foreground, "bg": s:background })
 call s:setGuiColor("Cursor", { "fg": s:background, "bg": s:cursorColor })
-call s:setGuiColor("LineNr", { "fg": s:brightBlack })
+call s:setGuiColor("LineNr", { "fg": s:brightBlack, "bg": s:background })
 call s:setGuiColor("StatusLine", { "fg": s:foreground, "bg": s:black })
 call s:setGuiColor("StatusLineNC", { "fg": s:brightBlack, "bg": s:background })
 call s:setGuiColor("Title", { "fg": s:blue, "gui": "bold" })
-call s:setGuiColor("Visual", { "bg": s:selectionBackground })
+call s:setGuiColor("Visual", { "bg": s:darkBlue })
 call s:setGuiColor("VisualNC", { "fg": s:background, "bg": s:yellow })
 call s:setGuiColor("MatchParen", { "fg": s:background, "bg": s:yellow, "gui": "bold" })
 call s:setGuiColor("Pmenu", { "fg": s:white })
@@ -76,7 +76,7 @@ call s:setGuiColor("NonText", { "fg": s:brightBlack })
 call s:setGuiColor("Folded", { "fg": s:brightBlack })
 call s:setGuiColor("SignColumn", { "fg": s:brightBlack })
 call s:setGuiColor("WinSeparator", { "fg": s:black })
-call s:setGuiColor("Special", { "fg": s:purple })
+call s:setGuiColor("Special", { "fg": s:cyan })
 call s:setGuiColor("SpecialKey", { "fg": s:brightBlack })
 call s:setGuiColor("SpellBad", { "fg": s:red, "gui": "underline" })
 call s:setGuiColor("SpellCap", { "fg": s:blue, "gui": "underline" })
@@ -95,9 +95,9 @@ call s:setGuiColor("PmenuThumb", { "fg": s:black, "bg": s:blue })
 call s:setGuiColor("QuickFixLine", { "fg": s:black, "bg": s:blue })
 call s:setGuiColor("WinBar", { "fg": s:black, "bg": s:darkBlack })
 call s:setGuiColor("WinBarNC", { "fg": s:black, "bg": s:darkBlack })
-call s:setGuiColor("CursorLine", { "bg": s:darkBlack })
-call s:setGuiColor("CursorColumn", { "bg": s:darkBlack })
-call s:setGuiColor("CursorLineNr", { "fg": s:purple })
+call s:setGuiColor("CursorLine", { "bg": s:selectionBackground })
+call s:setGuiColor("CursorColumn", { "bg": s:selectionBackground })
+call s:setGuiColor("CursorLineNr", { "fg": s:brightBlack, "bg": s:selectionBackground })
 call s:setGuiColor("ColorColumn", { "bg": s:background })
 call s:setGuiColor("NormalFloat", { "fg": s:foreground })
 call s:setGuiColor("FloatBorder", { "fg": s:brightBlack })
@@ -115,18 +115,18 @@ call s:setGuiColor("GitSignsDelete", { "fg": s:red })
 
 " --- Syntax Highlights ---
 call s:setGuiColor("Comment", { "fg": s:brightBlack, "gui": "italic" })
-call s:setGuiColor("String", { "fg": s:brightPurple })
-call s:setGuiColor("Number", { "fg": s:yellow })
-call s:setGuiColor("Boolean", { "fg": s:white })
-call s:setGuiColor("Keyword", { "fg": s:brightCyan })
-call s:setGuiColor("Function", { "fg": s:yellow, "style": "bold" })
+call s:setGuiColor("String", { "fg": s:green })
+call s:setGuiColor("Number", { "fg": s:purple })
+call s:setGuiColor("Boolean", { "fg": s:yellow })
+call s:setGuiColor("Keyword", { "fg": s:purple })
+call s:setGuiColor("Function", { "fg": s:blue })
 call s:setGuiColor("Identifier", { "fg": s:red })
 call s:setGuiColor("Statement", { "fg": s:purple })
-call s:setGuiColor("Operator", { "fg": s:yellow })
-call s:setGuiColor("Type", { "fg": s:purple })
-call s:setGuiColor("PreProc", { "fg": s:purple })
-call s:setGuiColor("Constant", { "fg": s:purple })
-call s:setGuiColor("Todo", { "fg": s:purple, "gui": "bold" })
+call s:setGuiColor("Operator", { "fg": s:blue })
+call s:setGuiColor("Type", { "fg": s:brightBlue })
+call s:setGuiColor("PreProc", { "fg": s:brightPurple })
+call s:setGuiColor("Constant", { "fg": s:brightYellow })
+call s:setGuiColor("Todo", { "fg": s:yellow, "gui": "bold" })
 call s:setGuiColor("Added", { "fg": s:green })
 call s:setGuiColor("Removed", { "fg": s:red })
 call s:setGuiColor("Changed", { "fg": s:yellow })

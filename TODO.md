@@ -1,8 +1,8 @@
 # TODO
 
-- [ ] Themes
+- [x] Themes
     - [x] Cursor Dark Midnight
-    - [ ] Cursor Dark
+    - [x] Cursor Dark
 - [x] Vimscript
 - [x] Tree-sitter support
 - [ ] Plugin integration

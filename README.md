@@ -31,6 +31,8 @@ return {
     priority = 1000,
     config = function()
       require("cursor-dark").setup({
+        -- For theme
+        style = "cursor-dark-midnight",
         -- For a transparent background
         transparent = true,
       })
@@ -60,6 +62,8 @@ You can customize the colorscheme by passing a table of options to the setup fun
 require("cursor-dark").setup({
   -- Set to `true` to make the background transparent
   transparent = false,
+  -- Choose theme
+  style = "cursor-dark-midnight",
 })
 ```
 
