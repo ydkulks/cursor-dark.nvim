@@ -10,6 +10,11 @@ A dark colorscheme for Neovim and Vim inspired by Cursor's dark and dark midnigh
 - **Tree-sitter Support**: Includes syntax highlighting for common Tree-sitter languages to provide a modern editing experience.
 - **Plugin Integration**: Provides sensible defaults and theme overrides for popular plugins like nvimdev/dashboard-nvim to ensure a consistent look.
 
+## 🎁 Bonous Features
+
+- **Terminal Color Scheme**:
+    - Alacritty
+
 ## 📸 Screenshot
 
 Here's a preview of the colorscheme in action.

@@ -9,5 +9,6 @@
     - [x] nvimdev/dashboard.nvim
     - [ ] ydkulks/tabs.nvim
     - [ ] ydkulks/statusline.nvim
-    - [ ] ydkulks/statusline.nvim
 - [ ] Terminal color scheme
+    - [x] Alacritty
+    - [ ] Ghostty
