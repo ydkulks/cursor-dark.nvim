@@ -19,6 +19,14 @@ A dark colorscheme for Neovim and Vim inspired by Cursor's dark and dark midnigh
 
 Here's a preview of the colorscheme in action.
 
+- Cursor Dark
+
+![cursor-dark](./images/cursor-dark.png)
+
+- Cursor Dark Midnight
+
+![cursor-dark-midnight](./images/cursor-dark-midnight.png)
+
 ## 📦 Installation
 
 Use your favorite plugin manager to install cursor-dark.nvim.
@@ -65,13 +73,17 @@ colorscheme cursor-dark
 ## ⚙️ Configuration
 
 You can customize the colorscheme by passing a table of options to the setup function.
-```lua
 
+> [!Note]
+> If the colors look odd, make sure you have you have configured the terminal's colorscheme to be
+> the same colorscheme your using in Neovim
+
+```lua
 require("cursor-dark").setup({
   -- Set to `true` to make the background transparent
   transparent = false,
   -- Choose theme
-  style = "cursor-dark-midnight",
+  style = "dark-midnight",
 })
 ```
 
