@@ -1,0 +1,51 @@
+{
+  "schemes" :
+  [
+        {
+            "background": "#1A1A1A",
+            "black": "#2A2A2A",
+            "blue": "#85C1FC",
+            "brightBlack": "#505050",
+            "brightBlue": "#85C1FC",
+            "brightCyan": "#83D6C5",
+            "brightGreen": "#A3BE8C",
+            "brightPurple": "#C582BF",
+            "brightRed": "#BF616A",
+            "brightWhite": "#D8DEE9",
+            "brightYellow": "#EBC88D",
+            "cursorColor": "#87C3FF",
+            "cyan": "#88C0D0",
+            "foreground": "#D8DEE9",
+            "green": "#A3BE8C",
+            "name": "Cursor Dark",
+            "purple": "#AA9BF5",
+            "red": "#BF616A",
+            "selectionBackground": "#2E2E2E",
+            "white": "#D8DEE9",
+            "yellow": "#EFB080"
+        },
+        {
+            "background": "#1E2127",
+            "black": "#30353F",
+            "blue": "#85A4C3",
+            "brightBlack": "#535D71",
+            "brightBlue": "#85A4C3",
+            "brightCyan": "#93BDBD",
+            "brightGreen": "#A6BF91",
+            "brightPurple": "#B692B0",
+            "brightRed": "#C06771",
+            "brightWhite": "#EBEEF4",
+            "brightYellow": "#EACC90",
+            "cursorColor": "#7DC8FF",
+            "cyan": "#8CC1D1",
+            "foreground": "#EBEEF4",
+            "green": "#A6BF91",
+            "name": "Cursor Dark Midnight",
+            "purple": "#82819F",
+            "red": "#C06771",
+            "selectionBackground": "#EBEEF4",
+            "white": "#E4E8F0",
+            "yellow": "#EACC90"
+        }
+  ]
+}
