@@ -11,4 +11,6 @@
     - [ ] ydkulks/statusline.nvim
 - [ ] Terminal color scheme
     - [x] Alacritty
-    - [ ] Ghostty
+    - [x] Ghostty
+    - [x] Terminal (Windows)
+- [x] Yazi
