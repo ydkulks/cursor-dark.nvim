@@ -222,13 +222,14 @@ local highlights = {
 }
 
 -- The core function to set the colorscheme.
-M.set = function()
+M.set = function(options)
   -- Clear all existing highlights before applying new ones.
   vim.cmd.highlight("clear")
 
   -- Check if the `transparent` option is set.
   -- This is how you would use the options passed from `init.lua`.
-  if require("cursor-dark").options.transparent then
+  options = options or {}
+  if options.transparent then
     highlights.Normal.bg = "none"
     highlights.StatusLine.bg = "none"
     highlights.StatusLineNC.bg = "none"
@@ -237,7 +238,7 @@ M.set = function()
   end
 
   -- Check if `dashboard` option is set.
-  if require("cursor-dark").options.dashboard then
+  if options.dashboard then
     highlights.DashboardHeader = { fg = palette.blue, style = "bold" }
     highlights.DashboardIcon = { fg = palette.blue, style = "bold" }
     highlights.DashboardShortCut = { fg = palette.blue, style = "bold" }
@@ -272,9 +273,6 @@ M.set = function()
     vim.cmd(cmd)
   end
 end
-
--- Call the main function to set the colorscheme when this file is loaded.
-M.set()
 
 -- Return the module.
 return M
