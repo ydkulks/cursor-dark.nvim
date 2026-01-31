@@ -39,14 +39,15 @@ local palette = {
 local highlights = {
   -- General UI highlights
   Normal = { fg = palette.foreground, bg = palette.background },
-  Cursor = { fg = palette.background, bg = palette.cursorColor },
+  Cursor = { style = "reverse" },
+  lCursor = { style = "reverse" },
   LineNr = { fg = palette.brightBlack, bg = "none" },
   StatusLine = { fg = palette.foreground, bg = palette.black },
   StatusLineNC = { fg = palette.brightBlack, bg = palette.background },
   Title = { fg = palette.blue, style = "bold" },
   Visual = { fg = "none", bg = palette.darkBlue },
   VisualNC = { fg = palette.background, bg = palette.yellow },
-  MatchParen = { fg = palette.background, bg = palette.yellow, style = "bold" },
+  MatchParen = { style = "underline" },
   Pmenu = { fg = palette.white, bg = "none" },
   PmenuSel = { fg = palette.black, bg = palette.blue },
   NonText = { fg = palette.brightBlack, bg = "none" },
@@ -67,7 +68,7 @@ local highlights = {
   ModeMsg = { fg = palette.green, bg = "none" },
   Question = { fg = palette.cyan, bg = "none" },
   WarningMsg = { fg = palette.yellow, bg = "none" },
-  Conseal = { fg = palette.black, bg = "none" },
+  Conceal = { fg = palette.black, bg = "none" },
   PmenuThumb = { fg = palette.black, bg = palette.blue },
   QuickFixLine = { fg = palette.black, bg = palette.blue },
   WinBar = { fg = palette.black, bg = palette.darkBlack },
@@ -222,13 +223,14 @@ local highlights = {
 }
 
 -- The core function to set the colorscheme.
-M.set = function()
+M.set = function(options)
   -- Clear all existing highlights before applying new ones.
   vim.cmd.highlight("clear")
 
   -- Check if the `transparent` option is set.
   -- This is how you would use the options passed from `init.lua`.
-  if require("cursor-dark").options.transparent then
+  options = options or {}
+  if options.transparent then
     highlights.Normal.bg = "none"
     highlights.StatusLine.bg = "none"
     highlights.StatusLineNC.bg = "none"
@@ -237,7 +239,7 @@ M.set = function()
   end
 
   -- Check if `dashboard` option is set.
-  if require("cursor-dark").options.dashboard then
+  if options.dashboard then
     highlights.DashboardHeader = { fg = palette.blue, style = "bold" }
     highlights.DashboardIcon = { fg = palette.blue, style = "bold" }
     highlights.DashboardShortCut = { fg = palette.blue, style = "bold" }
@@ -271,9 +273,6 @@ M.set = function()
     vim.cmd(cmd)
   end
 end
-
--- Call the main function to set the colorscheme when this file is loaded.
-M.set()
 
 -- Return the module.
 return M

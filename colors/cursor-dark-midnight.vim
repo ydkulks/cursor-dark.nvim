@@ -62,14 +62,15 @@ endfunction
 
 " --- UI Highlights ---
 call s:setGuiColor("Normal", { "fg": s:foreground, "bg": s:background })
-call s:setGuiColor("Cursor", { "fg": s:background, "bg": s:cursorColor })
+call s:setGuiColor("Cursor", { "gui": "reverse" })
+call s:setGuiColor("lCursor", { "gui": "reverse" })
 call s:setGuiColor("LineNr", { "fg": s:brightBlack, "bg": s:background })
 call s:setGuiColor("StatusLine", { "fg": s:foreground, "bg": s:black })
 call s:setGuiColor("StatusLineNC", { "fg": s:brightBlack, "bg": s:background })
 call s:setGuiColor("Title", { "fg": s:blue, "gui": "bold" })
 call s:setGuiColor("Visual", { "bg": s:darkBlue })
 call s:setGuiColor("VisualNC", { "fg": s:background, "bg": s:yellow })
-call s:setGuiColor("MatchParen", { "fg": s:background, "bg": s:yellow, "gui": "bold" })
+call s:setGuiColor("MatchParen", { "gui": "underline" })
 call s:setGuiColor("Pmenu", { "fg": s:white })
 call s:setGuiColor("PmenuSel", { "fg": s:black, "bg": s:blue })
 call s:setGuiColor("NonText", { "fg": s:brightBlack })
