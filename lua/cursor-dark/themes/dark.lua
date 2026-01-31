@@ -46,7 +46,6 @@ local highlights = {
   Title = { fg = palette.blue, style = "bold" },
   Visual = { fg = "none", bg = palette.selectionBackground },
   VisualNC = { fg = palette.background, bg = palette.yellow },
-  -- MatchParen = { fg = palette.background, bg = palette.yellow, style = "bold" },
   MatchParen = { fg = palette.yellow, bg = palette.darkYellow, style = "bold" },
   Pmenu = { fg = palette.white, bg = "none" },
   PmenuSel = { fg = palette.black, bg = palette.blue },
@@ -244,7 +243,7 @@ M.set = function()
     highlights.DashboardShortCut = { fg = palette.blue, style = "bold" }
     highlights.DashboardDesc = { fg = palette.blue, style = "bold" }
     highlights.DashboardKey = { fg = palette.blue, style = "bold" }
-    highlights.DashboardFooter = { bg = "none", fg = "#545c7e" }
+    highlights.DashboardFooter = { bg = "none", fg = palette.brightBlack }
   end
 
 

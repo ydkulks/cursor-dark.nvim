@@ -5,15 +5,15 @@ local M = {}
 
 -- This is the default configuration for your `colorscheme`.
 -- Users can override these options.
----@type {style: string, transparent: boolean, dashboard: boolean}
+---@type {style: "dark" | "dark-midnight", transparent: boolean, dashboard: boolean}
 local default_options = {
-  style = "dark",
+  style = "dark", -- "dark" or "dark-midnight"
   transparent = false,
   dashboard = false,
 }
 
 -- Setup function
----@param options { transparent: boolean, dashboard: boolean} Options to override default options
+---@param options {style: "dark" | "dark-midnight", transparent: boolean, dashboard: boolean} Options to override default options
 function M.setup(options)
   -- Merge user options with defaults
   M.options = vim.tbl_deep_extend("force", default_options, options or {})

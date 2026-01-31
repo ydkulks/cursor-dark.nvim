@@ -243,7 +243,7 @@ M.set = function()
     highlights.DashboardShortCut = { fg = palette.blue, style = "bold" }
     highlights.DashboardDesc = { fg = palette.blue, style = "bold" }
     highlights.DashboardKey = { fg = palette.blue, style = "bold" }
-    highlights.DashboardFooter = { bg = "none", fg = "#545c7e" }
+    highlights.DashboardFooter = { bg = "none", fg = palette.brightBlack }
   end
 
   -- Loop through the defined highlights and apply them.
