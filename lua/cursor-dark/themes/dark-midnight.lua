@@ -46,7 +46,7 @@ local highlights = {
   Title = { fg = palette.blue, style = "bold" },
   Visual = { fg = "none", bg = palette.darkBlue },
   VisualNC = { fg = palette.background, bg = palette.yellow },
-  MatchParen = { fg = palette.background, bg = palette.yellow, style = "bold" },
+  MatchParen = { fg = palette.yellow, bg = palette.darkYellow, style = "bold" },
   Pmenu = { fg = palette.white, bg = "none" },
   PmenuSel = { fg = palette.black, bg = palette.blue },
   NonText = { fg = palette.brightBlack, bg = "none" },
