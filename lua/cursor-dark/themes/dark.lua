@@ -35,7 +35,6 @@ local palette = {
 }
 
 -- Define the highlight groups for different syntax elements.
--- This is a simplified example. You'll need to expand this for a complete colorscheme.
 local highlights = {
   -- General UI highlights
   Normal = { fg = palette.foreground, bg = palette.background },

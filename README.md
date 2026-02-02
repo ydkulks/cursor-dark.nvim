@@ -16,6 +16,8 @@ A dark colorscheme for Neovim and Vim inspired by Cursor's dark and dark midnigh
     - Alacritty
     - Ghostty
     - Terminal (Windows)
+    - Kitty
+- **Yazi**
 
 ## 📸 Screenshot
 

@@ -13,4 +13,5 @@
     - [x] Alacritty
     - [x] Ghostty
     - [x] Terminal (Windows)
+    - [x] Kitty
 - [x] Yazi
